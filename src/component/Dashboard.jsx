@@ -32,7 +32,7 @@ const Dashboard = () => {
 
     const [sortBy, setSortBy] = useState("createDate");
     const [sortDirection, setSortDirection] = useState("asc");
-    const { setOpenForm ,setReadOnly } = useFormContext();
+    const { setOpenForm ,setReadOnly,setRequired } = useFormContext();
 
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -43,6 +43,7 @@ const Dashboard = () => {
     const handleClick = () => {
         setOpenForm(true);
         setReadOnly(false)
+        setRequired(true)
     };
 
     const handleFilterChange = (value, name) => {

@@ -5,7 +5,7 @@ import { useFormContext } from "../FormContext.jsx";
 
 const Task = ({ task }) => {
     const [toggle, setToggle] = useState(false);
-    const { setInitialTask,setReadOnly, setOpenForm } = useFormContext();
+    const { setInitialTask,setReadOnly,setRequired, setOpenForm } = useFormContext();
 
     const handleMenu = () => {
         setToggle(!toggle);
@@ -15,6 +15,7 @@ const Task = ({ task }) => {
         console.log(task);
         setInitialTask(task);
         setReadOnly(true)
+        setRequired(false)
     };
     const handleDelete = (task) => {
         const taskId = task.id;
